@@ -1,12 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import HatsPage from './pages/hatspage.component';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        {/* <Route path="shop/hats" element={<HatsPage />} />
+        <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>Error 404 not found</p>
+              </main>
+            }
+        /> */}
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
