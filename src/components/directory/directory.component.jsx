@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import MenuItem from '../menu-item/menu-item.component';
 
@@ -50,9 +50,10 @@ class Directory extends React.Component {
 	render () {
 		return (
 			<nav className='directory-menu'>
-				{this.state.sections.map(({title, id, imageUrl, size, linkUrl}) => (
-					<Link key={id} to={`/${linkUrl}`}><MenuItem key={id} title={title} imageUrl={imageUrl} size={size} /></Link>
-				))}
+				{this.state.sections.map(({id, ...otherSectionProps}) => (
+					<MenuItem key={id} {...otherSectionProps} />
+					// <Link key={id} to={`/${linkUrl}`}><MenuItem key={id} title={title} imageUrl={imageUrl} size={size} /></Link>
+					))}
 			</nav>
 		)
 	}
