@@ -31,7 +31,7 @@ function App() {
             path="*"
             element={
               <main style={{ padding: "1rem" }}>
-                <p>Error 404 not found</p>
+                <p className='error404'>Error 404 not found</p>
               </main>
             }
         />
