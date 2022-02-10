@@ -3,18 +3,19 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import HomePage from './pages/homepage/homepage.component'
+import ShopPage from './pages/shop/shop.component';
+
 import './App.css';
 
-import HatsPage from './pages/hatspage.component';
 
-const TopicTest =(props) => {
-  console.log(props)
-  return (
-    <div>
-      <h1>TOPIC DETAIL TEST</h1>
-    </div>
-  );
-}
+// const TopicTest =(props) => {
+//   console.log(props)
+//   return (
+//     <div>
+//       <h1>TOPIC DETAIL TEST</h1>
+//     </div>
+//   );
+// }
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/shop/hats/*" element={<TopicTest />} />
+        <Route path="/shop/" element={<ShopPage />} />
+        {/* <Route path="/shop/hats/*" element={<TopicTest />} /> */}
         <Route
             path="*"
             element={

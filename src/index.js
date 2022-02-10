@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import HatsPage from './pages/hatspage.component';
 
 ReactDOM.render(
   <React.StrictMode>
