@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { ReactComponent as Logo } from "../../assets/crown.svg";
+import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 import "./header.styles.scss";
 
@@ -17,6 +17,7 @@ const Header = () => {
         variant="text"
         className="option">SHOP</Button> */}
       <Link className="option" to="/shop">SHOP</Link>
+      <Link className="option" to="/signin">SIGN IN</Link>
       <Link className="option" to="/contact">CONTACT</Link>
       </div>
     </div>

@@ -10,10 +10,11 @@
     box-sizing:border-box;
     height: 100%;
     width: 80px;
-    padding: 5px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
 
   .options {
