@@ -1,15 +1,6 @@
-// import firebase from "firebase/compat/app";
-// import "firebase/compat/firestore";
-// import "firebase/compat/auth";
-
 import { initializeApp } from "firebase/app";
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
-} from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+// import { getFireStore } from "firebase/firestore";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 const config = {
   apiKey: "AIzaSyBqBQGo7Di0tvk9IONqJmb0g569j3K5gWE",
@@ -23,6 +14,7 @@ const config = {
 
 const firebase = initializeApp(config);
 
+// export const db = getFireStore(firebase);
 export const auth = getAuth();
 export const provider = new GoogleAuthProvider();
 
@@ -32,35 +24,24 @@ export const signInWithGoogle = async () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-      // ...
+      //   const credential = GoogleAuthProvider.credentialFromResult(result);
+      //   const token = credential.accessToken;
+      //   // The signed-in user info.
+      //   const user = result.user;
+      //   // ...
     })
     .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
+      //   // Handle Errors here.
+      //   const errorCode = error.code;
+      //   const errorMessage = error.message;
+      //   // The email of the user's account used.
+      //   const email = error.email;
+      //   // The AuthCredential type that was used.
+      //   const credential = GoogleAuthProvider.credentialFromError(error);
+      //   // ...
     });
 };
 
-export const signOutFromFirebase = () => {
-  //   let navigate = useNavigate();
-  signOut(auth)
-    .then(() => {
-      console.log("logged out from Google");
-      //navigate("/");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
 // export const auth = firebase.auth();
 // export const firestore = firebase.auth.firestore();
 
