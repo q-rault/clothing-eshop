@@ -7,7 +7,7 @@
   font-size: 1.5rem;
 
   .logo-container {
-    box-sizing:border-box;
+    box-sizing: border-box;
     height: 100%;
     width: 80px;
     padding: 10px;
@@ -26,6 +26,7 @@
 
     .option {
       padding: 10px 15px;
+      cursor: pointer;
     }
   }
 }

@@ -1,6 +1,11 @@
 import { initializeApp } from "firebase/app";
 // import { getFireStore } from "firebase/firestore";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+} from "firebase/auth";
 
 const config = {
   apiKey: "AIzaSyBqBQGo7Di0tvk9IONqJmb0g569j3K5gWE",
@@ -42,11 +47,6 @@ export const signInWithGoogle = async () => {
     });
 };
 
-// export const auth = firebase.auth();
-// export const firestore = firebase.auth.firestore();
-
-// const provider = new firebase.auth.GoogleAuthProvider();
-// provider.setCustomParameters({ prompt: "select_account" });
-// export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signOutFromGoogle = () => signOut(auth);
 
 export default firebase;
