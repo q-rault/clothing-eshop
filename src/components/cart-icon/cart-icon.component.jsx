@@ -7,15 +7,18 @@ import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
 
 import "./cart-icon.styles.scss";
 
-const CartIcon = ({ toggleCartHidden, cartItemsLength }) => (
+const CartIcon = ({ toggleCartHidden, cartItemCount }) => (
   <div className="cart-icon" onClick={toggleCartHidden}>
     <ShoppingIcon className="shopping-icon" />
-    <span className="item-count">{cartItemsLength}</span>
+    <span className="item-count">{cartItemCount}</span>
   </div>
 );
 
 const mapStateToProps = ({ cart: { cartItems } }) => ({
-  cartItemsLength: cartItems.length,
+  cartItemCount: cartItems.reduce(
+    (acc, cartItem) => acc + cartItem.quantity,
+    0
+  ),
 });
 const mapDispatchToProps = (dispatch) => ({
   toggleCartHidden: () => dispatch(toggleCartHidden()),
