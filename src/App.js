@@ -1,22 +1,21 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-
-import { setCurrentUser } from "./redux/user/user.actions";
-import { selectCurrentUser } from "./redux/user/user.selectors";
 
 import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.component";
+import CheckoutPage from "./pages/checkout/checkout.component";
 
 import "./App.css";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { onAuthStateChanged } from "firebase/auth";
 import { onSnapshot } from "firebase/firestore";
+import { setCurrentUser } from "./redux/user/user.actions";
+import { selectCurrentUser } from "./redux/user/user.selectors";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -50,6 +49,7 @@ class App extends React.Component {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/shop/" element={<ShopPage />} />
+            <Route path="/checkout/" element={<CheckoutPage />} />
             <Route
               path="/signin/"
               element={
