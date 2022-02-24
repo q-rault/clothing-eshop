@@ -12,7 +12,6 @@ const CollectionPage = () => {
   const { collectionId } = useParams();
   const collection = useSelector(selectCollection(collectionId));
   const { title, items } = collection;
-  console.log(collection);
   return (
     <div className="collection-page">
       <h1 className="title">{title.toUpperCase()}</h1>
