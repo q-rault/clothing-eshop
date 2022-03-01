@@ -5,7 +5,14 @@ import {
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  collection,
+  getDoc,
+  setDoc,
+  writeBatch,
+} from "firebase/firestore";
 import config from "./firebase.config";
 
 const firebase = initializeApp(config);
@@ -33,6 +40,22 @@ export const signInWithGoogle = async () => {
 export const signOutFromGoogle = () => signOut(auth);
 
 export const db = getFirestore();
+
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = collection(db, collectionKey);
+  console.log(collectionRef);
+
+  const add_batch = writeBatch(db);
+  objectsToAdd.forEach((object) => {
+    const newDocRef = doc(collectionRef);
+    add_batch.set(newDocRef, object);
+    console.log(newDocRef);
+  });
+  return await add_batch.commit();
+};
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
